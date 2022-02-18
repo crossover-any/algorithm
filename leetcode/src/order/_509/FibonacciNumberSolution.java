@@ -61,4 +61,52 @@ public class FibonacciNumberSolution {
         }
         return dp[n];
     }
+
+    /**
+     * 思路：矩阵快速幂
+     *
+     * 时间复杂度：O（logn）
+     * 空间复杂度：O（1）
+     * @param n 第n个数
+     * @return 第n个数的前两数之和
+     */
+    public int fib3(int n) {
+        if (n <= 1) {
+            return n;
+        }
+        int[][] m = {{1,1},{1,0}};
+        return pow(m, n -1)[0][0];
+    }
+
+    public int[][] pow(int[][] a, int n) {
+        int[][] result = {{1,0},{0,1}};
+        while (n > 0) {
+            if ((n & 1) == 1) {
+                result = multiply(a, result);
+            }
+            a = multiply(a, a);
+            n >>= 1;
+        }
+        return result;
+    }
+
+
+    /**
+     * 2x2矩阵相乘
+     *
+     * @param a 矩阵a
+     * @param b 矩阵b
+     * @return 矩阵
+     */
+    public int[][] multiply(int[][] a , int [][] b) {
+        int[][] temp = new int[2][2];
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                temp[i][j] = a[i][0]*b[0][j] + a[i][1]*b[1][j];
+            }
+        }
+        return temp;
+    }
+
+
 }
