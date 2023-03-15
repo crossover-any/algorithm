@@ -22,7 +22,7 @@ import entity.VersionControl;
  * 所以，4 是第一个错误的版本。
  * @author tengxq
  */
-public class LeetCode278FirstBadVersion extends VersionControl {
+public class LeetCode0278FirstBadVersion extends VersionControl {
 
     /**
      * 思路

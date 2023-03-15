@@ -12,7 +12,7 @@ package order.leetcode;
  *
  * @author tengxq
  */
-public class LeetCode35SearchInsert {
+public class LeetCode0035SearchInsert {
 
     public int searchInsert(int[] nums, int target) {
         int left = 0;
