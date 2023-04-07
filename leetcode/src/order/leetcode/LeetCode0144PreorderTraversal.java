@@ -63,6 +63,38 @@ public class LeetCode0144PreorderTraversal {
         return list;
     }
 
+    /**
+     * 前续遍历-非递归
+     *
+     * @param root 根节点
+     * @return 排序列表
+     */
+    public List<Integer> preorderTraversal3(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        if (root == null) {
+            return list;
+        }
+        Stack<TreeNode> stack = new Stack<>();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (node != null) {
+                if (node.right != null) {
+                    stack.push(node.right);
+                }
+                if (node.left != null) {
+                    stack.push(node.left);
+                }
+                stack.push(node);
+                stack.push(null);
+            } else {
+                TreeNode pop = stack.pop();
+                list.add(pop.val);
+            }
+        }
+        return list;
+    }
+
     public static void main(String[] args) {
         TreeNode treeNode3 = new TreeNode(3);
         TreeNode treeNode1 = new TreeNode(1);
