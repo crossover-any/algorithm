@@ -47,6 +47,7 @@ public class LeetCode0069MySqrt {
     }
 
     public static void main(String[] args) {
-        
+        LeetCode0069MySqrt sqrt = new LeetCode0069MySqrt();
+        System.out.println(sqrt.mySqrt(16));
     }
 }
